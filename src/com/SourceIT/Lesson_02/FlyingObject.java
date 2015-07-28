@@ -8,7 +8,7 @@ package com.SourceIT.Lesson_02;
  *
  */
 
-public abstract class FlyingObject implements com.SourceIT.lesson_02.FlyingControl
+public abstract class FlyingObject implements com.SourceIT.Lesson_02.FlyingControl
 {
     private short speed;
     private short capacity;
