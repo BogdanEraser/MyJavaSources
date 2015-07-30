@@ -2,8 +2,7 @@ package com.SourceIT.Lesson_03;
 
 /**
  * Created by Bogdan Kukharskiy on 27.07.15.
- * РЎС‡РёС‚Р°РµРј СЃСѓРјРјСѓ СЂСЏРґР° 1! - 2! + 3! вЂ“ 4! + 5! - вЂ¦ + n! РґР»СЏ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р° n > 0. 
- * Р§РёСЃР»Рѕ n Р·Р°РґР°РµС‚СЃСЏ РІ РєРѕРґРµ РїСЂРѕРіСЂР°РјРјС‹.
+ * Считает сумму ряда 1! - 2! + 3! – 4! + 5! - … + n! для заданного числа n > 0..
  */
 public class task_04
 {
@@ -24,7 +23,7 @@ public class task_04
     public static void main(String[] args)
     {
         int n1 = 19;
-        System.out.println("РЎСѓРјРјР° СЂСЏРґР° РґРѕ " + n1 + " = " + calc(n1));
+        System.out.println("Сумма ряда для " + n1 + " = " + calc(n1));
 
     }
 }
