@@ -59,14 +59,14 @@ public class Circle
         }
     }
 
-    public boolean isCircleInCircle(Circle C)
+    public boolean isCircleInCircle(Circle c)
     {
-        if (Math.sqrt((C.getX()-this.x)*(C.getX()-this.x)+(C.getY()-this.y)*(C.getY()-this.y)) <= this.radius) {
-            System.out.println("Круг с параметрамии "+C+" принадлежит кругу "+ this);
+        if (Math.sqrt((c.getX()-this.x)*(c.getX()-this.x)+(c.getY()-this.y)*(c.getY()-this.y))+c.getRadius() < this.radius) {
+            System.out.println("Круг с параметрамии "+c+" принадлежит кругу "+ this);
             return true;
         }
         else {
-            System.out.println("Круг с параметрамии "+C+" НЕ принадлежит кругу "+ this);
+            System.out.println("Круг с параметрамии "+c+" НЕ принадлежит кругу "+ this);
             return false;
         }
     }
