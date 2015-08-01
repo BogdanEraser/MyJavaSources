@@ -1,4 +1,4 @@
-package com.SourceIT.MyJavaSources.src.com.SourceIT.Lesson_04;
+package com.SourceIT.Lesson_04;
 
 /**
  * Created by Bogdan Kukharskiy on 31.07.15.
@@ -61,7 +61,7 @@ public class Circle
 
     public boolean isCircleInCircle(Circle C)
     {
-        if (((C.getX()-this.x)*(C.getX()-this.x)+(C.getY()-this.y)*(C.getY()-this.y) <= this.radius*this.radius)&&(C.getRadius()<this.radius)) {
+        if (Math.sqrt((C.getX()-this.x)*(C.getX()-this.x)+(C.getY()-this.y)*(C.getY()-this.y)) <= this.radius) {
             System.out.println("Круг с параметрамии "+C+" принадлежит кругу "+ this);
             return true;
         }

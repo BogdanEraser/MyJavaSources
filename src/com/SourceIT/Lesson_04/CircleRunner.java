@@ -1,4 +1,4 @@
-package com.SourceIT.MyJavaSources.src.com.SourceIT.Lesson_04;
+package com.SourceIT.Lesson_04;
 
 /**
  * Created by Bogdan Kukharskiy on 31.07.15.
