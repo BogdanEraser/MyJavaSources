@@ -9,22 +9,13 @@ import java.util.Arrays;
  */
 public class task_07
 {
-    public static boolean isPrimeFaster(int n) {
-        if ((n!=2) && (n%2==0)) return false;  //если это не число 2 и делится на 2 без остатка - значит точно не простое
-        for(int i=3;i*i<=n;i+=2) {  // проверяем только нечетные с шагом 2
-            if(n%i==0)
-                return false;
-        }
-        return true;
-    }
-
     public static void main(String[] args)
     {
         int[] ar = new int[100];
         short i = 2;
         for (byte j = 0; j < 100;)
         {
-            if (isPrimeFaster(i)) {
+            if (task_03.isPrimeFaster(i)) {
                 ar[j]=i;
                 j++;
             }

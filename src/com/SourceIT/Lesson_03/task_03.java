@@ -29,7 +29,7 @@ public class task_03
 
     public static void main(String[] args)
     {
-        int n1 = 22425;
+        int n1 = 205;
         long start = System.nanoTime();
         if (isPrime(n1)) System.out.println("Число "+n1+ " простое");
         else System.out.println("Число "+n1+ " не простое");
