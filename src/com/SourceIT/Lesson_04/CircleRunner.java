@@ -9,14 +9,14 @@ public class CircleRunner
     {
         Circle A = new Circle(0,0,10);  //создаем
         System.out.println(A);
-        A.isPointInCircle(9, 9);
+        A.isPointInCircle(5, 4);    //проверяем, принадлежит ли произвольная точка кругу
 
         A.move(10, 10);    //передвигаем
         System.out.println(A);
-        A.isPointInCircle(2, 2);
+        A.isPointInCircle(2, 2);    //еще раз проверяем, принадлежит ли произвольная точка кругу
 
-        Circle B = new Circle(5,5,2);  //создаем другой круг
-        A.isCircleInCircle(B);
+        Circle B = new Circle(8,7,2);  //создаем другой круг
+        A.isCircleInCircle(B);      //проверяем принадлежность первому кругу
 
     }
 }
