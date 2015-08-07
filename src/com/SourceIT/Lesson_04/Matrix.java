@@ -1,5 +1,7 @@
 package com.SourceIT.MyJavaSources.src.com.SourceIT.Lesson_04;
 
+import java.util.Arrays;
+
 /**
  * Created by Bogdan Kukharskiy on 07.08.15.
  * Создать класс "Матрица".
@@ -16,27 +18,58 @@ package com.SourceIT.MyJavaSources.src.com.SourceIT.Lesson_04;
 public class Matrix
 {
     private int columnsCount;
-    private int rowCount;
+    private int rowsCount;
     private float[][] m;
 
     public int getColumnsCount()
     {
-        return columnsCount;
+        return this.columnsCount;
     }
 
-    public int getRowCount()
+    public int getRowsCount()
     {
-        return rowCount;
+        return this.rowsCount;
+    }
+
+    public float getElement(int i, int j)
+    {
+        return this.m[i][j];
     }
 
     //конструктор
-    public Matrix(int columnsCount, int rowCount, float[][] m)
+    public Matrix(int columnsCount, int rowsCount, float[][] m)
     {
         this.columnsCount = columnsCount;
-        this.rowCount = rowCount;
-        this.m = new float[columnsCount][rowCount];
+        this.rowsCount = rowsCount;
+        this.m = new float[columnsCount][rowsCount];
     }
 
+    //сложение матриц
+    public Matrix addMatix(Matrix a, Matrix b)
+    {
+        if ((a.getColumnsCount()!=b.getColumnsCount())||(a.getRowsCount()!=b.getRowsCount()))
+            {
+                System.out.println("Матрицы не равны по строками и/или столцам. Сложение невозможно");
+                return null;
+            }
+        float c[][] = new float[a.getColumnsCount()][a.getRowsCount()];
+        for (int i = 0; i <(a.getRowsCount()-1); i++)
+            for (int j = 0; j < (a.getColumnsCount() - 1); j++)
+            {
+                c[i][j] = a.getElement(i,j)+b.getElement(i,j);
+            }
+        return new Matrix(a.getColumnsCount(), a.getRowsCount(), c);    //возвращаем новый экземпляр класса Матрица
+    }
 
-
+    //вроде как вывод на экран
+    // TODO переделать под красивый вывод
+    @Override
+    public String toString()
+    {
+        return "Matrix{" +
+                "columnsCount=" + columnsCount +
+                ", rowsCount=" + rowsCount +
+                ", m=" + Arrays.deepToString(m) +
+                '}';
+    }
 }
