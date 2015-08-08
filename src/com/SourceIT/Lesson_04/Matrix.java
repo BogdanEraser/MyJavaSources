@@ -1,4 +1,4 @@
-package com.SourceIT.MyJavaSources.src.com.SourceIT.Lesson_04;
+package com.SourceIT.Lesson_04;
 
 import java.util.Arrays;
 
@@ -41,11 +41,11 @@ public class Matrix
     {
         this.columnsCount = columnsCount;
         this.rowsCount = rowsCount;
-        this.m = new float[columnsCount][rowsCount];
+        this.m = m;
     }
 
     //сложение матриц
-    public Matrix addMatix(Matrix a, Matrix b)
+    public Matrix addMatrix(Matrix a, Matrix b)
     {
         if ((a.getColumnsCount()!=b.getColumnsCount())||(a.getRowsCount()!=b.getRowsCount()))
             {
@@ -53,8 +53,8 @@ public class Matrix
                 return null;
             }
         float c[][] = new float[a.getColumnsCount()][a.getRowsCount()];
-        for (int i = 0; i <(a.getRowsCount()-1); i++)
-            for (int j = 0; j < (a.getColumnsCount() - 1); j++)
+        for (int i = 0; i<a.getRowsCount(); i++)
+            for (int j = 0; j<a.getColumnsCount(); j++)
             {
                 c[i][j] = a.getElement(i,j)+b.getElement(i,j);
             }

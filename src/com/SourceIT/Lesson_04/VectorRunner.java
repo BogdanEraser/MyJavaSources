@@ -3,7 +3,7 @@ package com.SourceIT.Lesson_04;
 /**
  * Created by Bogdan Kukharskiy on 05.08.2015.
  */
-public class MyVectorRunner {
+public class VectorRunner {
     public static void main(String[] args) {
         Vector mas = new Vector();
         mas.add("qwe0");        //добавляем элементы
