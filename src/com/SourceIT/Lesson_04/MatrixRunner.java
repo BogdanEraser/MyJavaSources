@@ -37,15 +37,28 @@ public class MatrixRunner
         }
 
         Matrix a = new Matrix(colA, rowA, masA);
-        System.out.println("Сгенерированная матрица А");
+        System.out.println("Сгенерированная матрица А:");
         System.out.println(a);
 
         Matrix b = new Matrix(colB,rowB,masB);
-        System.out.println("Сгенерированная матрица B");
+        System.out.println("Сгенерированная матрица B:");
         System.out.println(b);
 
+        System.out.println("Результат сложения матриц А и B:");
         Matrix c = a.addMatrix(a, b);
         System.out.println(c);
+
+        System.out.println("Введите множитель для матрицы А:");
+        int num = Integer.parseInt(rd.readLine());
+        a.multiplyOnNumber(num);
+        System.out.println("Результат умножения матрицы А на " + num+":");
+        System.out.println(a);
+
+        System.out.println("Результат умножения матрицы А на матрицу B:");
+        c=c.multiplyOnMatrix(a,b);
+        System.out.println(c);
+
+
 
     }
 }

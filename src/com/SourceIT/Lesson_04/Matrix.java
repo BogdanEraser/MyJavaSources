@@ -36,6 +36,11 @@ public class Matrix
         return this.m[i][j];
     }
 
+    public void setElement(int i, int j, float value)
+    {
+        this.m[i][j]=value;
+    }
+
     //конструктор
     public Matrix(int columnsCount, int rowsCount, float[][] m)
     {
@@ -49,16 +54,50 @@ public class Matrix
     {
         if ((a.getColumnsCount()!=b.getColumnsCount())||(a.getRowsCount()!=b.getRowsCount()))
             {
-                System.out.println("Матрицы не равны по строками и/или столцам. Сложение невозможно");
+                System.out.println("Матрицы не равны по строками и/или столбцам. Сложение невозможно");
                 return null;
             }
         float c[][] = new float[a.getColumnsCount()][a.getRowsCount()];
-        for (int i = 0; i<a.getRowsCount(); i++)
-            for (int j = 0; j<a.getColumnsCount(); j++)
+        for (int i = 0; i<a.getColumnsCount(); i++)
+            for (int j = 0; j<a.getRowsCount(); j++)
             {
                 c[i][j] = a.getElement(i,j)+b.getElement(i,j);
             }
         return new Matrix(a.getColumnsCount(), a.getRowsCount(), c);    //возвращаем новый экземпляр класса Матрица
+    }
+
+    //умножение на число
+    public void multiplyOnNumber(int n)
+    {
+        for (int i = 0; i<this.getColumnsCount(); i++)
+            for (int j = 0; j<this.getRowsCount(); j++)
+            {
+                this.setElement(i, j, this.getElement(i, j)*n);
+            }
+    }
+
+    //умножение на другую матрицу
+    public Matrix multiplyOnMatrix(Matrix a, Matrix b)
+    {
+        if ((a.getColumnsCount()!=b.getRowsCount()))
+        {
+            System.out.println("Матрицы не годятся для перемножения." +
+                    " Число столбцов первого сомножителя не равно числу строк второго сомножителя");
+            return null;
+        }
+        float c[][] = new float[b.getColumnsCount()][a.getRowsCount()];
+        for (int i = 0; i<a.getColumnsCount(); i++)
+        {
+            for (int j = 0; j<b.getRowsCount(); j++)
+            {
+                c[i][j] = 0;
+                for (int k = 0; k<b.getColumnsCount(); k++)
+                {
+                    c[i][j]=c[i][j]+a.getElement(i,k)*b.getElement(k,j);
+                }
+            }
+        }
+        return new Matrix(b.getColumnsCount(), a.getRowsCount(), c);    //возвращаем новый экземпляр класса Матрица
     }
 
     //вроде как вывод на экран
