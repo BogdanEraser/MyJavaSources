@@ -20,7 +20,7 @@ public class MatrixRunner
         float[][] masA = new float[colA][rowA];     //генерируем значения для матрицы А
         for (int i = 0; i < colA; i++) {
             for (int j = 0; j < rowA; j++) {
-                masA[i][j]=(float)(Math.random()*10+2.5);
+                masA[i][j]=(float)(Math.random()*10+0.5);
             }
         }
 
@@ -32,7 +32,7 @@ public class MatrixRunner
         float[][] masB = new float[colB][rowB];     //генерируем значения для матрицы B
         for (int i = 0; i < colB; i++) {
             for (int j = 0; j < rowB; j++) {
-                masB[i][j]=(float)(Math.random()*10+2.5);
+                masB[i][j]=(float)(Math.random()*10+0.7);
             }
         }
 
@@ -51,14 +51,17 @@ public class MatrixRunner
         System.out.println("Введите множитель для матрицы А:");
         int num = Integer.parseInt(rd.readLine());
         a.multiplyOnNumber(num);
-        System.out.println("Результат умножения матрицы А на " + num+":");
+        System.out.println("Результат умножения матрицы А на " + num + ":");
         System.out.println(a);
 
         System.out.println("Результат умножения матрицы А на матрицу B:");
-        c=c.multiplyOnMatrix(a,b);
+        c=a.multiplyOnMatrix(b);
         System.out.println(c);
 
-
-
+        System.out.println("Матрица А до транспонирования:");
+        a.coolOutput();
+        System.out.println("Матрица А после транспонирования:");
+        a=a.transposition();
+        a.coolOutput();
     }
 }
