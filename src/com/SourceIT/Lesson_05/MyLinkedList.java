@@ -8,8 +8,22 @@ import java.util.ListIterator;
 /**
  * Created by Bogdan Kukharskiy on 15.08.2015.
  */
-public class MyLinkedList implements List {
+public class MyLinkedList<T> implements List {
 
+    int size = 0;
+    LLElement<T> first;
+    LLElement<T> last;
+
+    public MyLinkedList() {}
+
+    public MyLinkedList(int size) {
+        this.size = size;
+    }
+
+    public MyLinkedList(Collection<? extends T> c) {
+        this();
+        addAll(c);
+    }
     @Override
     public int size() {
         return 0;

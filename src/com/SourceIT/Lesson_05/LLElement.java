@@ -1,7 +1,5 @@
 package com.SourceIT.Lesson_05;
 
-import java.util.LinkedList;
-
 /**
  * Created by Bogdan Kukharskiy on 15.08.2015.
  */
