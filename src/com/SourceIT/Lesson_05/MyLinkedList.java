@@ -24,13 +24,15 @@ public class MyLinkedList<T> implements List {
         this();
         addAll(c);
     }
+
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
+        if (this.size == 0) return true;
         return false;
     }
 
