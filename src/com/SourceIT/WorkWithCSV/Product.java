@@ -16,7 +16,7 @@ public class Product implements Comparable {
     private String name;
     private String manufacturer;
     private double price;
-    private LocalDate manunfDate;
+    private LocalDate manufactureDate;
     private LocalDate bestBeforeDate;
 
     public Product() {
@@ -24,11 +24,11 @@ public class Product implements Comparable {
         this.name = "";
         this.manufacturer = "";
         this.price = 0.0;
-            //this.manunfDate = Calendar.SHORT_FORMAT(Calendar.getInstance().getTime()); //берем текущую дату
+            //this.manufactureDate = Calendar.SHORT_FORMAT(Calendar.getInstance().getTime()); //берем текущую дату
             //Calendar gc = new GregorianCalendar();
             //gc.add(Calendar.YEAR, 1);
             //this.bestBeforeDate = gc.getTime();     //берем +1 год от текущей даты
-        this.manunfDate = LocalDate.now(); //берем текущую дату
+        this.manufactureDate = LocalDate.now(); //берем текущую дату
         this.bestBeforeDate = LocalDate.now().plusYears(1);     //берем +1 год от текущей даты
     }
     public Product(int upn, String name, String manufacturer, double price, LocalDate manufactureDate, LocalDate bestBeforeDate) {
@@ -36,7 +36,7 @@ public class Product implements Comparable {
         this.name = name;
         this.manufacturer = manufacturer;
         this.price = price;
-        this.manunfDate = manufactureDate;
+        this.manufactureDate = manufactureDate;
         this.bestBeforeDate = bestBeforeDate;
     }
 
@@ -67,7 +67,7 @@ public class Product implements Comparable {
                 ";" + name  +
                 ";" + manufacturer +
                 ";" + price +
-                ";" + manunfDate +
+                ";" + manufactureDate +
                 ";" + bestBeforeDate;
     }
 }
