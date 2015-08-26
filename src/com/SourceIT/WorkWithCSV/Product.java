@@ -1,8 +1,9 @@
 package com.SourceIT.WorkWithCSV;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+//import java.util.Calendar;
+//import java.util.Date;
+//import java.util.GregorianCalendar;
+import java.time.*;
 
 /**
  * Created by Bogdan Kukharskiy on 24.08.2015.
@@ -15,20 +16,22 @@ public class Product implements Comparable {
     private String name;
     private String manufacturer;
     private double price;
-    private Date manunfDate;
-    private Date bestBeforeDate;
+    private LocalDate manunfDate;
+    private LocalDate bestBeforeDate;
 
     public Product() {
         this.upn = 0;
         this.name = "";
         this.manufacturer = "";
         this.price = 0.0;
-        this.manunfDate = Calendar.getInstance().getTime(); //берем текущую дату
-        Calendar gc = new GregorianCalendar();
-        gc.add(Calendar.YEAR, 1);
-        this.bestBeforeDate = gc.getTime();     //берем +1 год от текущей даты
+            //this.manunfDate = Calendar.SHORT_FORMAT(Calendar.getInstance().getTime()); //берем текущую дату
+            //Calendar gc = new GregorianCalendar();
+            //gc.add(Calendar.YEAR, 1);
+            //this.bestBeforeDate = gc.getTime();     //берем +1 год от текущей даты
+        this.manunfDate = LocalDate.now(); //берем текущую дату
+        this.bestBeforeDate = LocalDate.now().plusYears(1);     //берем +1 год от текущей даты
     }
-    public Product(int upn, String name, String manufacturer, double price, Date manufactureDate, Date bestBeforeDate) {
+    public Product(int upn, String name, String manufacturer, double price, LocalDate manufactureDate, LocalDate bestBeforeDate) {
         this.upn = upn;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -58,5 +61,13 @@ public class Product implements Comparable {
         return 0;
     }
 
-
+    @Override
+    public String toString() {
+        return upn +
+                ";" + name  +
+                ";" + manufacturer +
+                ";" + price +
+                ";" + manunfDate +
+                ";" + bestBeforeDate;
+    }
 }

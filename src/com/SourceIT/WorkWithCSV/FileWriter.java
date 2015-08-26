@@ -3,7 +3,6 @@ package com.SourceIT.WorkWithCSV;
 import java.io.*;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  * Created by Bogdan Kukharskiy on 24.08.2015.
@@ -24,8 +23,7 @@ public class FileWriter implements CSVWriter {
             out = new PrintWriter(file);
             Iterator<Product> productIterator = newData.iterator();
             while (productIterator.hasNext()) {
-                out.print(productIterator.toString());
-                productIterator.next();
+                out.println(productIterator.next());
             }
         } catch (FileNotFoundException e) {
             System.out.println("Ошибка записи в файл " + destinationFileName);
