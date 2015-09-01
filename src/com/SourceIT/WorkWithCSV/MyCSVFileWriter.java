@@ -22,7 +22,7 @@ public class MyCSVFileWriter implements CSVWriter {
 
 
     @Override
-    public void writeProductListToSCV(String destinationFileName, List<Product> newData, boolean appendToFile) {
+    public void writeProductListToCSV(String destinationFileName, List<Product> newData, boolean appendToFile) {
         File file = new File(destinationFileName);
         PrintWriter out = null;
 
@@ -38,8 +38,7 @@ public class MyCSVFileWriter implements CSVWriter {
         try {
             if (appendToFile) {
                 out = new PrintWriter(new FileOutputStream(file, true));// робимо append до файлу
-            }
-            else {
+            } else {
                 out = new PrintWriter(file);
             }
 
@@ -56,6 +55,29 @@ public class MyCSVFileWriter implements CSVWriter {
 
 
     @Override
-    public void writeToSCVRandomData(String destinationFileName, int lineValue) {
+    public void writeToCSVRandomData(String destinationFileName, int lineValue) {
+        File file = new File(destinationFileName);
+        PrintWriter out = null;
+
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                System.out.println("Ошибка создания файла " + destinationFileName);
+            }
+        }
+
+        try {
+            out = new PrintWriter(file);
+            int i = 0;
+            while (i < lineValue) {
+                out.println(new Product());
+                i++;
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Ошибка записи в файл " + destinationFileName);
+        } finally {
+            closeStream(out);
+        }
     }
 }
