@@ -63,11 +63,17 @@ public class Product implements Comparable {
 
     @Override
     public String toString() {
-        return upn +
-                ";" + name  +
-                ";" + manufacturer +
-                ";" + price +
-                ";" + manufactureDate +
-                ";" + bestBeforeDate;
+        String separator = ";";
+        StringBuffer c = new StringBuffer().append(upn).append(separator).append(name).append(separator);
+        c.append(manufacturer).append(separator).append(price).append(separator);
+        c.append(manufactureDate).append(separator).append(bestBeforeDate);
+        return c.toString();
+
+//        return upn +
+//                ";" + name  +
+//                ";" + manufacturer +
+//                ";" + price +
+//                ";" + manufactureDate +
+//                ";" + bestBeforeDate;
     }
 }
