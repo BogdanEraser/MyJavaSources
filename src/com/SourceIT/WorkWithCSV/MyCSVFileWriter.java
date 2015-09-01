@@ -7,30 +7,7 @@ import java.util.List;
 /**
  * Created by Bogdan Kukharskiy on 24.08.2015.
  */
-public class FileWriter implements CSVWriter {
-
-    public void writeToFile(String destinationFileName, List<Product> newData) {
-        File file = new File(destinationFileName);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                System.out.println("Ошибка создания файла " + destinationFileName);
-            }
-        }
-        PrintWriter out = null;
-        try {
-            out = new PrintWriter(file);
-            Iterator<Product> productIterator = newData.iterator();
-            while (productIterator.hasNext()) {
-                out.println(productIterator.next());
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Ошибка записи в файл " + destinationFileName);
-        } finally {
-            closeStream(out);
-        }
-    }
+public class MyCSVFileWriter implements CSVWriter {
 
     private static void closeStream(Closeable stream) {
         if (stream != null) {
@@ -46,12 +23,9 @@ public class FileWriter implements CSVWriter {
 
     @Override
     public void writeProductListToSCV(String destinationFileName, List<Product> newData, boolean appendToFile) {
-
-    }
-
-    @Override
-    public void writeToSCVRandomData(String destinationFileName, int lineValue) {
         File file = new File(destinationFileName);
+        PrintWriter out = null;
+
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -59,15 +33,29 @@ public class FileWriter implements CSVWriter {
                 System.out.println("Ошибка создания файла " + destinationFileName);
             }
         }
-        PrintWriter out = null;
+
+
         try {
-            out = new PrintWriter(file);
-            out.print(lineValue);
+            if (appendToFile) {
+                out = new PrintWriter(new FileOutputStream(file, true));// робимо append до файлу
+            }
+            else {
+                out = new PrintWriter(file);
+            }
+
+            Iterator<Product> productIterator = newData.iterator();
+            while (productIterator.hasNext()) {
+                out.println(productIterator.next());
+            }
         } catch (FileNotFoundException e) {
             System.out.println("Ошибка записи в файл " + destinationFileName);
         } finally {
             closeStream(out);
         }
+    }
 
+
+    @Override
+    public void writeToSCVRandomData(String destinationFileName, int lineValue) {
     }
 }

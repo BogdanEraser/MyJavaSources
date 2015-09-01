@@ -55,8 +55,8 @@ public class Product implements Comparable {
                 return (int) result / Math.abs(result);
             }
         }
-        catch (ClassCastException с){
-            System.out.println("Ошибка приведения класса в методе сравнения");
+        catch (ClassCastException c){
+            System.out.println("Ошибка приведения класса в методе сравнения." + c.toString());
         }
         return 0;
     }
