@@ -3,6 +3,7 @@ package com.SourceIT.WorkWithCSV;
 //import java.util.Calendar;
 //import java.util.Date;
 //import java.util.GregorianCalendar;
+import java.math.BigDecimal;
 import java.time.*;
 
 /**
@@ -15,23 +16,19 @@ public class Product implements Comparable {
     private int upn;
     private String name;
     private String manufacturer;
-    private double price;
+    private BigDecimal price;
     private LocalDate manufactureDate;
     private LocalDate bestBeforeDate;
 
     public Product() {
         this.upn = 0;
-        this.name = "";
-        this.manufacturer = "";
-        this.price = 0.0;
-            //this.manufactureDate = Calendar.SHORT_FORMAT(Calendar.getInstance().getTime()); //берем текущую дату
-            //Calendar gc = new GregorianCalendar();
-            //gc.add(Calendar.YEAR, 1);
-            //this.bestBeforeDate = gc.getTime();     //берем +1 год от текущей даты
+        this.name = "N/A";
+        this.manufacturer = "N/A";
+        this.price = new BigDecimal("0.0"); //где-то вычитал, что так лучше работать с финансовыми значениями
         this.manufactureDate = LocalDate.now(); //берем текущую дату
         this.bestBeforeDate = LocalDate.now().plusYears(1);     //берем +1 год от текущей даты
     }
-    public Product(int upn, String name, String manufacturer, double price, LocalDate manufactureDate, LocalDate bestBeforeDate) {
+    public Product(int upn, String name, String manufacturer, BigDecimal price, LocalDate manufactureDate, LocalDate bestBeforeDate) {
         this.upn = upn;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -52,7 +49,7 @@ public class Product implements Comparable {
             //затем сравниваем по UPN
             result = upn - p.upn;
             if (result != 0) {
-                return (int) result / Math.abs(result);
+                return result / Math.abs(result);
             }
         }
         catch (ClassCastException c){
@@ -64,16 +61,9 @@ public class Product implements Comparable {
     @Override
     public String toString() {
         String separator = ";";
-        StringBuffer c = new StringBuffer().append(upn).append(separator).append(name).append(separator);
+        StringBuilder c = new StringBuilder().append(upn).append(separator).append(name).append(separator);
         c.append(manufacturer).append(separator).append(price).append(separator);
         c.append(manufactureDate).append(separator).append(bestBeforeDate);
         return c.toString();
-
-//        return upn +
-//                ";" + name  +
-//                ";" + manufacturer +
-//                ";" + price +
-//                ";" + manufactureDate +
-//                ";" + bestBeforeDate;
     }
 }
