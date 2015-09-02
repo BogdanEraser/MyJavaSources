@@ -22,8 +22,8 @@ public class Product implements Comparable {
 
     public Product() {
         this.upn = 0;
-        this.name = "N/A";
-        this.manufacturer = "N/A";
+        this.name = "N_A";
+        this.manufacturer = "N_A";
         this.price = new BigDecimal("0.0"); //где-то вычитал, что так лучше работать с финансовыми значениями
         this.manufactureDate = LocalDate.now(); //берем текущую дату
         this.bestBeforeDate = LocalDate.now().plusYears(1);     //берем +1 год от текущей даты

@@ -22,6 +22,6 @@ public class Runner {
         fileWriter.writeToCSVRandomDataToFileSize("D:\\3.csv", 30000);    //пишем в файл случаные данные, при заданном размере файла
 
         MyCSVFileReader fileReader = new MyCSVFileReader();
-        fileReader.readFromFile("D:\\1.csv").toString();
+        fileReader.readFromFile("D:\\3.csv").toString();
     }
 }
