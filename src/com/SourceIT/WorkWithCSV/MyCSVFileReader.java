@@ -4,7 +4,9 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -18,11 +20,11 @@ public class MyCSVFileReader implements CSVReader {
         if (!file.exists()) {
             System.out.println("Нет доступа к файлу " + fileName);
         }
-        List<Product> productList = null;
+        List<Product> productList = new ArrayList<Product>();
 
         Scanner readData = null;
         try {
-            readData = new Scanner(file).useDelimiter("[\\r\\n;]+");
+            readData = new Scanner(file).useDelimiter("[\\r\\n;]+").useLocale(Locale.ENGLISH);
         } catch (FileNotFoundException e) {
             System.out.println("Ошибка чтения из файла " + fileName);
         }
@@ -40,16 +42,14 @@ public class MyCSVFileReader implements CSVReader {
                 name = readData.next();
                 manufacturer = readData.next();
                 price = readData.nextBigDecimal();
-
                 manufactureDate = LocalDate.parse(readData.next(),formatter);
                 bestBeforeDate = LocalDate.parse(readData.next(),formatter);
-
                 productList.add(new Product(upn, name, manufacturer, price, manufactureDate, bestBeforeDate));
             }
         } catch (ClassCastException c) {
-            System.out.println("Ошибка приведения класса при чтении файла." + c.toString());
+            System.out.println("Ошибка приведения класса при чтении файла. " + c.toString());
         } catch (NullPointerException n) {
-            System.out.println("Какая-то ошибка ." + n.toString());
+            System.out.println("Какая-то ошибка. " + n.toString());
         }
         readData.close();
 
