@@ -9,7 +9,5 @@ public class ContainerRunner {
         fc.addFigure(new Circle(3,4,5));
         fc.addFigure(new Circle(1,1,10));
         fc.printAll();
-
-
     }
 }
