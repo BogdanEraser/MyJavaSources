@@ -6,4 +6,6 @@ package com.SourceIT.generic;
 public interface IFigureContainder {
     void move(double xShift, double yShift);
     void printAll();
+
+    void moveAll(double dx, double dy);
 }

@@ -35,4 +35,10 @@ public class FigureContainer<T extends Figure> implements IFigureContainder{
         }
     }
 
+    @Override
+    public void moveAll(double dx, double dy) {
+        for (T fig : figures) {
+            fig.move(dx, dy);
+        }
+    }
 }

@@ -6,9 +6,9 @@ package com.SourceIT.generic;
 public class Circle extends Figure{
     protected double radius;
 
-    public Circle(double x, double y) {
-        super(x, y);
-    }
+    //public Circle(double x, double y) {
+    //    super(x, y);
+    //}
 
     public Circle(double x, double y, double radius) {
         super(x, y);
@@ -19,7 +19,7 @@ public class Circle extends Figure{
     public void print() {
         System.out.println("Circle");
         super.print();
-        System.out.println(" Radius : "+radius);
+        System.out.println(" Radius : " + this.radius);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Circle extends Figure{
     }
 
     @Override
-    public void zoom(int times) {
+    public void zoom(double times) {
         this.radius*=times;
     }
 }

@@ -6,10 +6,6 @@ package com.SourceIT.generic;
 public abstract class Figure {
     protected Point center;
 
-//    public Figure(Point center) {
-//        this.center = center;
-//    }
-
     public Figure(double x, double y) {
         this.center = new Point(x,y);
     }
@@ -22,5 +18,6 @@ public abstract class Figure {
         System.out.println(" Center : "+center);
     }
     public abstract void move(double xShift, double yShift);
-    public abstract void zoom(int times);
+
+    public abstract void zoom(double times);
 }
