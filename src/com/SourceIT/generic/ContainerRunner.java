@@ -12,6 +12,8 @@ public class ContainerRunner {
         fc.printAll();
         fc.getFigures().get(0).move(1, 1);      //передвигаем первую фигуру в списке
         fc.getFigures().get(1).zoom(0.5);       //а вторую уменьшаем на 50 %
+        fc.getFigures().get(2).zoom(2);         //а третьую увеличиваем в 2 раза
+        System.out.println("\n -= после преобразованиея =-");
         fc.printAll();
     }
 }

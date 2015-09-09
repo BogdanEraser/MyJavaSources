@@ -31,6 +31,7 @@ public class FigureContainer<T extends Figure> implements IFigureContainder{
     @Override
     public void printAll() {
         for (T fig:figures) {
+            System.out.println("-----------------------------");
             fig.print();
         }
     }
