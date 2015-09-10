@@ -29,6 +29,6 @@ public class Circle extends Figure{
 
     @Override
     public void zoom(double times) {
-        this.radius*=times;
+        if (times>0) this.radius*=times;
     }
 }

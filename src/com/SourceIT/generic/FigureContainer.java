@@ -21,18 +21,25 @@ public class FigureContainer<T extends Figure> implements IFigureContainder{
         return figures;
     }
 
-    @Override
-    public void move(double xShift, double yShift) {
-        for (T fig:figures) {
-            fig.move(xShift, yShift);
-        }
-    }
+//    @Override
+//    public void move(double xShift, double yShift) {
+//        for (T fig:figures) {
+//            fig.move(xShift, yShift);
+//        }
+//    }
 
     @Override
     public void printAll() {
         for (T fig:figures) {
             System.out.println("-----------------------------");
             fig.print();
+        }
+    }
+
+    @Override
+    public void zoomAll(double times) {
+        for (T fig : figures) {
+            fig.zoom(times);
         }
     }
 

@@ -33,6 +33,8 @@ public class Triangle extends Figure {
         this.a.movePoint(xShift, yShift);
         this.b.movePoint(xShift, yShift);
         this.c.movePoint(xShift, yShift);
+        this.center.setX((this.a.getX() + this.b.getX() + this.c.getX()) / 3);
+        this.center.setY((this.a.getY() + this.b.getY() + this.c.getY()) / 3);
     }
 
     //для того, что бы масштабировать треугольник, нужно его центр поместить в начало координат,
