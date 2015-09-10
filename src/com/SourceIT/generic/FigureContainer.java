@@ -49,4 +49,11 @@ public class FigureContainer<T extends Figure> implements IFigureContainder{
             fig.move(dx, dy);
         }
     }
+
+    @Override
+    public void addContainer(FigureContainer figureContainerNew) {
+        for (int i = 0; i <figureContainerNew.getFigures().size() ; i++) {
+            this.figures.add((T) figureContainerNew.getFigures().get(i));
+        }
+    }
 }

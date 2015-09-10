@@ -8,4 +8,5 @@ public interface IFigureContainder {
     void printAll();
     void zoomAll(double times);
     void moveAll(double dx, double dy);
+    void addContainer(FigureContainer figureContainer);
 }

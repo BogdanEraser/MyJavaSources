@@ -5,7 +5,9 @@ package com.SourceIT.generic;
  */
 public class ContainerRunner {
     public static void main(String[] args) {
-        FigureContainer<Figure> fc = new FigureContainer();
+        //FigureContainer<Circle> fc = new FigureContainer();     //контейнер только для фигур класса Circle, но так не интересно
+
+        FigureContainer<Figure> fc = new FigureContainer();     //контейнер для любых фигур
         fc.addFigure(new Circle(3,4,5));
         fc.addFigure(new Circle(1,1,10));
         fc.addFigure(new Triangle(2, 2, 5, 5, 5, 2));
@@ -24,6 +26,14 @@ public class ContainerRunner {
         fc.moveAll(5, 0);   //все двигаем
         fc.zoomAll(10);     //все масштабируем
         System.out.println("\n -= после 2-го преобразования =-");
+        fc.printAll();
+
+        //создаем еще один контейнер и складываем с первым. В результате первый контейнер содержит свои начальные фигуры и фигуры из второго контейнера
+        FigureContainer<Figure> fcNew = new FigureContainer();     //контейнер для любых фигур
+        fcNew.addFigure(new Circle(-1,-4, 3));
+        fcNew.addFigure(new Triangle(1, 1, 3, 4, 6, -2));
+        fc.addContainer(fcNew);
+        System.out.println("\n -= после сложения контейнеров с фигурами =-");
         fc.printAll();
     }
 }
